@@ -3,26 +3,32 @@ services:
     build: .
     ports:
       - '3000:3000'
+    env_file: .env
     environment:
-      - NODE_ENV=development
-      - MYSQL_HOST=db
-      - MYSQL_PORT=3306
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=hospital
+      - NODE_ENV=${NODE_ENV}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MAILTRAP_USER=${MAILTRAP_USER}
+      - MAILTRAP_PASS=${MAILTRAP_PASS}
+      - MAILTRAP_HOST=${MAILTRAP_HOST}
+      - MAILTRAP_PORT=${MAILTRAP_PORT}
     depends_on:
       - db
     volumes:
       - .:/usr/src/app
     restart: always
+
   db:
     image: mysql:9
     restart: always
     environment:
-      MYSQL_USER: admin
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_DATABASE: hospital
-      MYSQL_PASSWORD: admin
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - '3306:3306'
