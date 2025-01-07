@@ -18,6 +18,8 @@ For email notifications a mailtrap account is needed, you can create one **[here
 
 ## START APP
 
+First, run `npm install`.
+
 To build the application with docker, run the following:
 
 `docker compose build`
