@@ -1,11 +1,14 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { initializeDatabase } from './db/data-source';
+import { patientRouter } from './routers/patientRouter';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+app.use('/api', patientRouter);
 
 async function start() {
   try {
