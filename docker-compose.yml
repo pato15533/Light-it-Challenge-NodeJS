@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=hospital
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    restart: always
+  db:
+    image: mysql:9
+    restart: always
+    environment:
+      MYSQL_USER: admin
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: hospital
+      MYSQL_PASSWORD: admin
+    ports:
+      - '3306:3306'
