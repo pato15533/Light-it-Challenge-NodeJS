@@ -6,7 +6,8 @@ const patientSchema = z.object({
   phone: z
     .string()
     .min(10, { message: 'Phone number must be at least 10 characters' }),
-  photoUrl: z.string().url({ message: 'Invalid URL for photo' }),
+  photoUrl: z.string({ message: 'Invalid URL for photo' }),
+  // another way to validate url is with: z.url()
 });
 
 export const validatePatientData = (data: unknown) => {
