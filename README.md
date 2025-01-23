@@ -1,4 +1,4 @@
-# Light-it-Challenge-NodeJS
+# Challenge-NodeJS
 
 ## PROJECT
 
@@ -40,9 +40,9 @@ Which accepts the following body:
 
 ```json
 {
-"name": "",
-"email": "",
-"phone": "",
-"photoUrl": ""
+  "name": "",
+  "email": "",
+  "phone": "",
+  "photoUrl": ""
 }
 ```

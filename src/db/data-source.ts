@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Patient } from './entities/Patient';
+import { Task } from './entities/Task';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,7 +12,7 @@ export const AppDataSource = new DataSource({
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DATABASE,
   synchronize: true, // This option is set to true only because this is a small demo. It should be set to false in production
-  entities: [Patient],
+  entities: [Task],
 });
 
 export const initializeDatabase = async () => {

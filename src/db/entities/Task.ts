@@ -7,21 +7,18 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Patient {
+export class Task {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
-
-  @Column({ unique: true })
-  email: string;
+  title: string;
 
   @Column()
-  phone: string;
+  description: string;
 
-  @Column()
-  photoUrl: string;
+  @Column({ type: 'enum', enum: ['TO_DO', 'IN_PROGRESS', 'DONE'] })
+  status: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -29,3 +26,5 @@ export class Patient {
   @UpdateDateColumn()
   updatedAt: Date;
 }
+
+export type TaskStatus = 'TO_DO' | 'IN_PROGRESS' | 'DONE';
